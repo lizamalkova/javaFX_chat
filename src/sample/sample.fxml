@@ -1,8 +1,46 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <MenuBar layoutY="1.0" opacity="0.56" prefHeight="25.0" prefWidth="171.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#addUser" text="Add user" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openAbout" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="S_RESIZE" />
+               </cursor>
+            </MenuBar>
+            <ListView fx:id="personView" layoutY="55.0" prefHeight="346.0" prefWidth="180.0" />
+            <Label layoutY="26.0" prefHeight="33.0" prefWidth="174.0" text="User's name" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="364.0">
+         <children>
+            <Button fx:id="sendButton" layoutX="331.0" layoutY="346.0" mnemonicParsing="false" onAction="#addSentenceToChat" prefHeight="53.0" prefWidth="88.0" text="Send" />
+            <TextField fx:id="inputChat" layoutY="345.0" onAction="#addSentenceToChat" prefHeight="53.0" prefWidth="331.0" />
+            <ListView fx:id="chatDialog" prefHeight="346.0" prefWidth="416.0" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
